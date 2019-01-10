@@ -19,6 +19,9 @@ public class Window {
             System.err.println("Error: Couldn't initialize GLFW");
             System.exit(-1);
         }
+
+        GLFW.glfwWindowHint(GLFW.GLFW_VISIBLE,GLFW.GLFW_FALSE);
+        GLFW.glfwWindowHint(GLFW.GLFW_RESIZABLE,GLFW.GLFW_FALSE);
         GLFW.glfwCreateWindow(width, height, title, 0, 0);
 
         if (window == 0) {
@@ -30,5 +33,17 @@ public class Window {
         GLFW.glfwSetWindowPos(window, (videoMode.width() - width) / 2, (videoMode.height() - height) / 2);
 
         GLFW.glfwShowWindow(window);
+    }
+
+    public boolean closed() {
+        return GLFW.glfwWindowShouldClose(window);
+    }
+
+    public void update() {
+        GLFW.glfwPollEvents();
+    }
+
+    public void swapBuffers() {
+        GLFW.glfwSwapBuffers(window);
     }
 }
