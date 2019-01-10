@@ -22,7 +22,7 @@ public class Window {
 
         GLFW.glfwWindowHint(GLFW.GLFW_VISIBLE,GLFW.GLFW_FALSE);
         GLFW.glfwWindowHint(GLFW.GLFW_RESIZABLE,GLFW.GLFW_FALSE);
-        GLFW.glfwCreateWindow(width, height, title, 0, 0);
+        window = GLFW.glfwCreateWindow(width, height, title, 0, 0);
 
         if (window == 0) {
             System.err.println("Error: Window couldn't be created:");
